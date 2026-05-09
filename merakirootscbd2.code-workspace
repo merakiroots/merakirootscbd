@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "kilo-code.new.autoApprove.enabled": true,
+        "kilo-code.new.autocomplete.enableChatAutocomplete": true,
+        "kilo-code.new.autocomplete.model": "mistralai/codestral-2508",
+        "kilo-code.new.browserAutomation.enabled": true
+    }
+}

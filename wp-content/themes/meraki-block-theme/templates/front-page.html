@@ -1,0 +1,20 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:pattern {"slug":"meraki-block-theme/home-hero"} /-->
+<!-- wp:pattern {"slug":"meraki-block-theme/category-mosaic"} /-->
+<!-- wp:pattern {"slug":"meraki-block-theme/transparency-callout"} /-->
+
+<!-- wp:group {"tagName":"section","className":"meraki-home-featured","style":{"spacing":{"padding":{"top":"64px","bottom":"72px"}}},"layout":{"type":"constrained"}} -->
+<section class="wp-block-group meraki-home-featured" style="padding-top:64px;padding-bottom:72px"><!-- wp:heading {"align":"wide","fontSize":"xl"} -->
+<h2 class="wp-block-heading alignwide has-xl-font-size">Best Sellers</h2>
+<!-- /wp:heading -->
+
+<!-- wp:shortcode -->
+[products limit="4" columns="4" orderby="menu_order" order="ASC"]
+<!-- /wp:shortcode --></section>
+<!-- /wp:group -->
+
+<!-- wp:pattern {"slug":"meraki-block-theme/learn-grid"} /-->
+<!-- wp:pattern {"slug":"meraki-block-theme/wholesale-intro"} /-->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

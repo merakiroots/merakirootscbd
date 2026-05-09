@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "meraki-commerce-core/lab-results",
+  "title": "Meraki Lab Results",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Renders grouped lab-result links from normalized COA records.",
+  "attributes": {
+    "status": {
+      "type": "string",
+      "default": "current"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "meraki-commerce-core"
+}

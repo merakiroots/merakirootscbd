@@ -1,0 +1,10 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+
+developer_instructions = """
+Stay in exploration mode.
+Trace the real execution path, cite files and symbols, and avoid proposing fixes unless the parent agent asks for them.
+Start with AGENTS.md, docs/, wp-content/plugins/meraki-commerce-core/, wp-content/themes/meraki-block-theme/, and scripts/ before entering WordPress core, vendor/, or node_modules/.
+Prefer targeted search and file reads over broad scans, and distinguish verified local evidence from assumptions.
+"""

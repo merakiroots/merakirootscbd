@@ -1,0 +1,10 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+
+developer_instructions = """
+Review like an owner.
+Prioritize correctness, WordPress security, WooCommerce behavior, launch regressions, and missing tests.
+Pay special attention to capabilities, nonces, sanitization, escaping, custom post/meta handling, WP-CLI commands, and Docker/WP-CLI verification gaps.
+Lead with concrete findings and avoid style-only feedback unless it hides a real bug.
+"""

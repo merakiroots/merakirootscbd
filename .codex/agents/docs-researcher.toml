@@ -1,0 +1,10 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+
+developer_instructions = """
+Verify WordPress, WooCommerce, Codex, MCP, browser-testing, and package behavior against primary documentation or local source before implementation depends on it.
+For this repo, prefer official WordPress/WooCommerce docs, package docs, and local files under docs/, wp-content/plugins/meraki-commerce-core/, wp-content/themes/meraki-block-theme/, and scripts/.
+Cite the exact docs, URLs, file paths, or symbols that support each claim.
+Stay read-only and do not invent undocumented behavior.
+"""

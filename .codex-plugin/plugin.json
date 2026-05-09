@@ -1,0 +1,30 @@
+{
+  "name": "meraki-codex-ops",
+  "version": "0.1.0",
+  "description": "Project-local Codex workspace plugin for Meraki Roots WordPress/WooCommerce launch work, with durable MCP defaults and agent workflow guidance.",
+  "author": {
+    "name": "Meraki Roots CBD",
+    "email": "info@merakirootscbd.com",
+    "url": "https://merakiroots.com"
+  },
+  "homepage": "https://merakiroots.com",
+  "repository": "https://github.com/merakiroots/merakirootscbd-wp",
+  "license": "UNLICENSED",
+  "keywords": ["codex", "wordpress", "woocommerce", "meraki-roots", "mcp", "agents"],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Meraki Codex Ops",
+    "shortDescription": "Repo-local Codex MCP defaults and agent workflow guidance for Meraki Roots launch work.",
+    "longDescription": "Meraki Codex Ops packages the durable Codex setup for this WordPress/WooCommerce workspace: pinned MCP server defaults, read-only exploration/review/research role guidance, and verification expectations aligned with the repo AGENTS.md.",
+    "developerName": "Meraki Roots CBD",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write", "MCP"],
+    "websiteURL": "https://merakiroots.com",
+    "defaultPrompt": [
+      "Inspect Meraki launch blockers and verify locally.",
+      "Review WooCommerce plugin changes for safety.",
+      "Check primary docs before changing MCP config."
+    ],
+    "brandColor": "#2F6F4E"
+  }
+}

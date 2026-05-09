@@ -1,0 +1,22 @@
+{
+    "name": "wordpress-dev-env",
+    "version": "1.0.0",
+    "description": "WordPress development environment setup",
+    "main": "index.js",
+    "scripts": {
+        "start": "wp-env start",
+        "stop": "wp-env stop",
+        "destroy": "wp-env destroy",
+        "install": "wp-env run cli wp core install --url=http://localhost:8888 --title=\"Meraki Roots CBD\" --admin_user=admin --admin_password=password --admin_email=info@merakirootscbd.com"
+    },
+    "wpPlugin": {
+        "scriptGlobal": "my-plugin"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "composer": "^4.1.0",
+        "@wordpress/scripts": "^32.1.0",
+        "node": "^26.1.0"
+    }
+}
