@@ -65,3 +65,13 @@ wp-content/plugins/akismet
 wp-content/plugins/hello.php
 wp-content/plugins/jetpack
 wp-content/plugins/woocommerce
+.gitignore
+.mcp.json
+mcp.json
+composer
+composer.json
+composer.lock
+vendor
+./vendor/
+./vendor/*
+
