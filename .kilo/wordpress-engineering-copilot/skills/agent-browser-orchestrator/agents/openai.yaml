@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent Browser Orchestrator"
+  short_description: "Routes browser automation tasks to ChatGPT/Codex/OpenAI-compatible skills and agent specs."

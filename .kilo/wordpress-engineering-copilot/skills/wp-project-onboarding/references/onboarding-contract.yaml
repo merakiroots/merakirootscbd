@@ -1,0 +1,41 @@
+state_backend: memory
+memory_state_file: wp-project-defaults.yaml
+
+trigger_when:
+  task_requires:
+    - "wordpress or woocommerce work that depends on recurring project context"
+    - "repo-specific review, implementation, debugging, or architecture guidance"
+    - "store-specific migration, customization, or business-rule guidance"
+  missing_state:
+    - "project_scope"
+
+required_state:
+  - key: "project_scope"
+    ask: "What project should I treat as the default for this work: the repo, plugin, theme, or store you want me to optimize for?"
+    store_as: "project_scope"
+
+optional_state:
+  - key: "project_type"
+    ask: "Is this mainly a plugin, theme, WooCommerce store, or broader WordPress platform project?"
+    default: "wordpress-project"
+    store_as: "project_type"
+  - key: "primary_repo_or_codebase"
+    ask: "What repo or codebase name should I remember for future implementation and review help?"
+    default: "not-set"
+    store_as: "primary_repo_or_codebase"
+  - key: "store_context"
+    ask: "If this project is commerce-related, what store or business context should I remember for future runs?"
+    default: "not-set"
+    store_as: "store_context"
+  - key: "preferred_output_shape"
+    ask: "Do you want me to default to architecture guidance, code review findings, implementation steps, or migration plans when the request is ambiguous?"
+    default: "implementation guidance with brief rationale"
+    store_as: "preferred_output_shape"
+
+completion_requires:
+  - "project_scope"
+
+skip_when:
+  - "the current request is a one-off question that can be answered well from the message alone"
+  - "the current request already includes enough repo, plugin, theme, or store context to complete the task without saving defaults first"
+  - "existing Memory already contains the required project_scope for this runtime end user"

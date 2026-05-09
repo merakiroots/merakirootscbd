@@ -1,0 +1,13 @@
+interface:
+  display_name: Meraki WP MCP Bridge
+  short_description: Use and connect the Meraki Roots WordPress MCP bridge for agents
+    and projects.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

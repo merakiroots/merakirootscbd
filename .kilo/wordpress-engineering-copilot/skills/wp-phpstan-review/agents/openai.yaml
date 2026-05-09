@@ -1,0 +1,17 @@
+interface:
+  display_name: WordPress PHPStan Review
+  short_description: WordPress PHPStan review and setup guidance. Use when reviewing `phpstan.neon`,
+    WordPress static-analysis setup, baselines, PHPStan levels, CI jobs, WordPress stubs,
+    `szepeviktor/phpstan-wordpress`, or when user mentions "PHPStan", "static analysis", "phpstan.neon",
+    "baseline", "WordPress stubs", or "CI type checks". Helps review WordPress-specific PHPStan
+    configuration, baseline strategy, extension wiring, and practical rollout patterns for
+    plugins, themes, and larger WordPress codebases.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

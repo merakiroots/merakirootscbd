@@ -1,0 +1,4 @@
+interface:
+  display_name: "WP Project Kickoff Router"
+  short_description: "Kick off WordPress work with the right context and routing"
+  default_prompt: "Use $wp-project-kickoff-router to scope the task, gather only the missing project context, route to the right WordPress workflow, and save stable defaults when helpful."

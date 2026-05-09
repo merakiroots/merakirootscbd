@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent Browser Core"
+  short_description: "use for ordinary website and webapp automation with agent-browser: opening pages, snapshots, clicking, filling, typing, selecting, uploading, extracting visible data, screenshots, "

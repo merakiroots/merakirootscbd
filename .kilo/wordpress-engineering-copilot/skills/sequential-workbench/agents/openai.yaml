@@ -1,0 +1,15 @@
+interface:
+  display_name: Sequential Workbench
+  short_description: portable stepwise reasoning + project study + knowledge weaving
+    for gpt/codex
+  emoji: 🧠
+  accent_color: '#3B82F6'
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

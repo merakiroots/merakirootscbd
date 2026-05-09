@@ -1,0 +1,4 @@
+interface:
+  display_name: "WP Repo Grounding"
+  short_description: "Ground WordPress advice in repo context fast"
+  default_prompt: "Use $wp-repo-context-grounding to inspect the repo, extract WordPress architecture context, and save durable notes before giving implementation or review guidance."

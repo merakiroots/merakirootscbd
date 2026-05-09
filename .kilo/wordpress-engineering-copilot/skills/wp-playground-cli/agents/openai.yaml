@@ -1,0 +1,13 @@
+interface:
+  display_name: WordPress Playground CLI
+  short_description: CLI and runCLI guidance for WordPress Playground commands, mounts, persistence, and automation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
+

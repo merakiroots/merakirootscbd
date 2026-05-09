@@ -1,0 +1,4 @@
+interface:
+  display_name: "WP Project Onboarding"
+  short_description: "Collect reusable WordPress project defaults."
+  default_prompt: "Use $wp-project-onboarding to collect durable repo or store defaults only when the current task needs them."
