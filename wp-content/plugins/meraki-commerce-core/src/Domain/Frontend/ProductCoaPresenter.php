@@ -122,19 +122,19 @@ class ProductCoaPresenter {
 						</div>
 					</details>
 				<?php endif; ?>
-				<details class="mcc-accordion">
-					<summary class="mcc-accordion__summary"><?php esc_html_e( 'Lab Results', 'meraki-commerce-core' ); ?></summary>
-					<div class="mcc-accordion__content">
-						<?php if ( $data['lab_name'] || $data['test_date'] || $data['batch_id'] ) : ?>
-							<p class="mcc-coa-meta-summary">
-								<?php echo esc_html( trim( implode( ' | ', array_filter( array( $data['lab_name'], $data['test_date'], $data['batch_id'] ) ) ) ) ); ?>
-							</p>
-						<?php endif; ?>
-						<?php if ( $data['attachment_url'] ) : ?>
+				<?php if ( $data['attachment_url'] ) : ?>
+					<details class="mcc-accordion">
+						<summary class="mcc-accordion__summary"><?php esc_html_e( 'Lab Results', 'meraki-commerce-core' ); ?></summary>
+						<div class="mcc-accordion__content">
+							<?php if ( $data['lab_name'] || $data['test_date'] || $data['batch_id'] ) : ?>
+								<p class="mcc-coa-meta-summary">
+									<?php echo esc_html( trim( implode( ' | ', array_filter( array( $data['lab_name'], $data['test_date'], $data['batch_id'] ) ) ) ) ); ?>
+								</p>
+							<?php endif; ?>
 							<p><a href="<?php echo esc_url( $data['attachment_url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Open Certificate of Analysis', 'meraki-commerce-core' ); ?></a></p>
-						<?php endif; ?>
-					</div>
-				</details>
+						</div>
+					</details>
+				<?php endif; ?>
 			</div>
 		</section>
 		<?php

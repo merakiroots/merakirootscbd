@@ -62,6 +62,10 @@ class LabResultsQuery {
 				continue;
 			}
 
+			if ( empty( $data['attachment_url'] ) ) {
+				continue;
+			}
+
 			$label = __( 'Unassigned COAs', 'meraki-commerce-core' );
 
 			if ( ! empty( $data['product_ids'] ) ) {

@@ -5,10 +5,10 @@
  * Version: 0.1.0
  * Author: Local Dev
  * Requires at least: 6.5
- * Requires PHP: 8.1
+ * Requires PHP: 8.3
  * Text Domain: my-plugin
- *
  * @package Local\MyPlugin
+ * Requires Plugins:  abilities-api
  */
 
 defined('ABSPATH') || exit;
@@ -27,3 +27,10 @@ add_action(
         }
     }
 );
+
+
+add_action('init', function () {
+    if (class_exists(\Local\AbilitiesApi\Plugin::class)) {
+        \Local\AbilitiesApi\Plugin::boot();
+    }
+});

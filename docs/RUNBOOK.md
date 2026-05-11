@@ -71,7 +71,7 @@ Document the real commands for:
 - redirect import
 - COA migration
 
-Current safe examples:
+Current repeatable local examples:
 
 ```bash
 ddev wp eval-file scripts/wp-cli/meraki-bootstrap.php --allow-root
@@ -79,6 +79,8 @@ ddev wp eval-file scripts/wp-cli/meraki-import-catalog.php --allow-root
 ddev wp eval-file scripts/wp-cli/meraki-audit-launch.php --allow-root
 ddev wp meraki coa migrate-legacy --dry-run --allow-root
 ```
+
+These commands are intended for local launch environments. `meraki-bootstrap.php` and `meraki-import-catalog.php` mutate pages, menus, products, categories, media, COA posts, and rewrite rules. Run the audit immediately after any import and do not run the mutating commands against production without a database backup and owner approval.
 
 `scripts/wp-cli/meraki-import-catalog.php` is the launch importer for products, local product images, category thumbnails, and current COA attachments. It prefers real launch photos from `wp-content/uploads/product-photos-current/` and falls back to `wp-content/uploads/product-photos-expanded/` only when the current pack is missing. It also prefers COA PDFs from `wp-content/plugins/meraki-commerce-core/uploads/lab-results/` before falling back to the historical block asset bundle.
 

@@ -70,15 +70,10 @@ class LabResultsShortcode {
 								<li class="meraki-lab-results__item">
 									<?php
 									$title = isset( $item['product_title'] ) && $item['product_title'] ? $item['product_title'] : $item['title'];
-									$url   = $item['attachment_url'] ? $item['attachment_url'] : ( $item['product_url'] ?? '' );
 									?>
-									<?php if ( $url ) : ?>
-										<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
-											<?php echo esc_html( $title ); ?><span class="screen-reader-text"><?php esc_html_e( ' View PDF', 'meraki-commerce-core' ); ?></span>
-										</a>
-									<?php else : ?>
-										<strong><?php echo esc_html( $title ); ?></strong>
-									<?php endif; ?>
+									<a href="<?php echo esc_url( $item['attachment_url'] ); ?>" target="_blank" rel="noopener noreferrer">
+										<?php echo esc_html( $title ); ?><span class="screen-reader-text"><?php esc_html_e( ' View PDF', 'meraki-commerce-core' ); ?></span>
+									</a>
 									<span class="meraki-lab-results__item-meta">
 										<?php echo esc_html( trim( implode( ' | ', array_filter( array( $item['lab_name'], $item['test_date'] ) ) ) ) ); ?>
 									</span>

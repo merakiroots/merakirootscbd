@@ -501,6 +501,23 @@ function mr_import_upsert_product_coa( int $product_id, array $row ): int {
 	$attachment_id = mr_import_coa_attachment( $coa_url );
 	$coa_id        = absint( get_post_meta( $product_id, '_mr_current_coa_id', true ) );
 
+	if ( ! $attachment_id ) {
+		if ( $coa_id ) {
+			update_post_meta( $coa_id, '_mr_coa_status', 'missing_pdf' );
+			delete_post_meta( $product_id, '_mr_current_coa_id' );
+		}
+
+		WP_CLI::warning(
+			sprintf(
+				'Skipping current COA link for product %1$d because no readable PDF was found for %2$s.',
+				$product_id,
+				$coa_url
+			)
+		);
+
+		return 0;
+	}
+
 	if ( $coa_id ) {
 		$existing = get_post( $coa_id );
 		if ( ! $existing || 'mr_coa' !== $existing->post_type ) {
@@ -534,6 +551,31 @@ function mr_import_upsert_product_coa( int $product_id, array $row ): int {
 	update_post_meta( $product_id, '_mr_current_coa_id', absint( $coa_id ) );
 
 	return absint( $coa_id );
+}
+
+/**
+ * Check whether a product has a current COA with a readable attachment.
+ *
+ * @param int $product_id Product ID.
+ * @return int
+ */
+function mr_import_get_verified_current_coa_id( int $product_id ): int {
+	$coa_id = absint( get_post_meta( $product_id, '_mr_current_coa_id', true ) );
+	if ( ! $coa_id ) {
+		return 0;
+	}
+
+	$attachment_id = absint( get_post_meta( $coa_id, '_mr_coa_attachment_id', true ) );
+	if ( ! $attachment_id ) {
+		return 0;
+	}
+
+	$file_path = get_attached_file( $attachment_id );
+	if ( ! is_string( $file_path ) || ! file_exists( $file_path ) ) {
+		return 0;
+	}
+
+	return $coa_id;
 }
 
 /**
@@ -657,7 +699,7 @@ foreach ( mr_import_read_csv( $product_csv ) as $row ) {
 	$product_id = mr_import_upsert_product( $row, $image_map );
 	if ( $product_id ) {
 		++$products_imported;
-		if ( absint( get_post_meta( $product_id, '_mr_current_coa_id', true ) ) ) {
+		if ( mr_import_get_verified_current_coa_id( absint( $product_id ) ) ) {
 			++$coas_linked;
 		}
 		WP_CLI::log( sprintf( 'Imported SKU %s as product %d.', $row['SKU'] ?? '', $product_id ) );
