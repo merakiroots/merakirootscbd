@@ -1,0 +1,11 @@
+asset_file,role,target,recommended_use
+category-tinctures.jpg,Category hero / collection image,Tinctures,Import to Media Library and set as product-category thumbnail/category hero.
+category-terpsolate-diamonds.jpg,Category hero / collection image,Terpsolate Diamonds,Import to Media Library and set as product-category thumbnail/category hero.
+category-body-lotion.jpg,Category hero / collection image,Body Lotion / Topicals,Import to Media Library and set as product-category thumbnail/category hero.
+category-capsules.jpg,Category hero / collection image,Capsules,Import to Media Library and set as product-category thumbnail/category hero.
+category-vape-cartridges.jpg,Category hero / collection image,Vape Cartridges,Import to Media Library and set as product-category thumbnail/category hero.
+homepage-slider-desktop.jpg,Homepage hero slider,Desktop,Import to Media Library and wire into the homepage hero template/CSS.
+homepage-slider-mobile.jpg,Homepage hero slider,Mobile,Import to Media Library and wire into the homepage hero template/CSS.
+product-trust-icons.png,Product page trust icons strip,Trust icons,Import to Media Library or place in child theme assets/images and render from product template.
+accordion-open-plus.png,Accordion icon,Open / plus,Place in child theme assets/images or keep CSS-generated plus/minus icons.
+accordion-close-minus.png,Accordion icon,Close / minus,Place in child theme assets/images or keep CSS-generated plus/minus icons.
