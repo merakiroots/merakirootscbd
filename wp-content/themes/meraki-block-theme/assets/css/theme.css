@@ -1111,3 +1111,432 @@ body.single-product .woocommerce-page main.wp-block-group {
 		margin-bottom: 3rem;
 	}
 }
+
+/* Launch UX polish: age gate, mobile navigation, cart, checkout, and lab results. */
+html.meraki-age-gate-active,
+html.meraki-age-gate-active body {
+	overflow: hidden;
+}
+
+.meraki-age-gate[hidden] {
+	display: none;
+}
+
+.meraki-age-gate {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+}
+
+.meraki-age-gate__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.82);
+}
+
+.meraki-age-gate__dialog {
+	position: relative;
+	z-index: 1;
+	width: min(480px, 100%);
+	padding: clamp(28px, 5vw, 42px);
+	background: var(--meraki-canvas);
+	color: var(--meraki-ink);
+	text-align: center;
+	border: 1px solid var(--meraki-border);
+}
+
+.meraki-age-gate__logo {
+	width: 74px;
+	height: 74px;
+	object-fit: contain;
+	margin: 0 auto 18px;
+}
+
+.meraki-age-gate__eyebrow {
+	margin: 0 0 10px;
+	color: var(--meraki-ash);
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.meraki-age-gate h2 {
+	margin: 0 0 12px;
+	font-size: clamp(2rem, 6vw, 3rem);
+	line-height: 1;
+}
+
+.meraki-age-gate p {
+	line-height: 1.55;
+}
+
+.meraki-age-gate__actions {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+.meraki-age-gate__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 12px 16px;
+	border: 1px solid var(--meraki-ink);
+	font-weight: 800;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+}
+
+.meraki-age-gate__button--primary {
+	background: var(--meraki-ink);
+	color: var(--meraki-canvas);
+}
+
+.meraki-age-gate__button--secondary {
+	background: var(--meraki-canvas);
+	color: var(--meraki-ink);
+}
+
+.meraki-age-gate__note {
+	margin: 18px 0 0;
+	color: var(--meraki-ash);
+	font-size: 0.84rem;
+}
+
+.meraki-mobile-actions {
+	display: none;
+}
+
+.mcc-coa-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 42px;
+	padding: 0 18px;
+	background: var(--meraki-ink);
+	color: var(--meraki-canvas);
+	font-weight: 800;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.mcc-coa-link:hover {
+	background: var(--meraki-canvas);
+	color: var(--meraki-ink);
+	outline: 1px solid var(--meraki-ink);
+}
+
+.meraki-commerce-assurance {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1px;
+	margin: 0 0 28px;
+	background: var(--meraki-border);
+	border: 1px solid var(--meraki-border);
+}
+
+.meraki-commerce-assurance__item {
+	display: grid;
+	gap: 6px;
+	padding: 18px;
+	background: #fafafa;
+}
+
+.meraki-commerce-assurance__item strong {
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.meraki-commerce-assurance__item span {
+	color: var(--meraki-ash);
+	font-size: 0.92rem;
+	line-height: 1.45;
+}
+
+.meraki-payment-review-notice {
+	display: grid;
+	gap: 8px;
+	margin: -8px 0 28px;
+	padding: 18px 20px;
+	border: 1px solid var(--meraki-ink);
+	background: var(--meraki-canvas);
+	color: var(--meraki-ink);
+}
+
+.meraki-payment-review-notice strong {
+	font-size: 0.92rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.meraki-payment-review-notice span {
+	max-width: 78ch;
+	color: var(--meraki-body);
+	line-height: 1.5;
+}
+
+.woocommerce-cart .meraki-page-shell,
+.woocommerce-checkout .meraki-page-shell {
+	width: min(1180px, calc(100vw - 48px));
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.woocommerce-cart h1,
+.woocommerce-checkout h1 {
+	margin-bottom: 28px;
+	font-size: clamp(2.1rem, 4vw, 3.4rem);
+	line-height: 1.08;
+}
+
+.woocommerce-cart table.shop_table,
+.woocommerce-checkout table.shop_table {
+	border: 1px solid var(--meraki-border);
+	border-collapse: collapse;
+}
+
+.woocommerce-cart table.shop_table th,
+.woocommerce-cart table.shop_table td,
+.woocommerce-checkout table.shop_table th,
+.woocommerce-checkout table.shop_table td {
+	padding: 16px;
+	border-color: var(--meraki-border);
+}
+
+.woocommerce-cart table.shop_table th,
+.woocommerce-checkout table.shop_table th {
+	background: #f7f7f7;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals {
+	width: min(420px, 100%);
+	padding: 22px;
+	border: 1px solid var(--meraki-border);
+	background: #fafafa;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals h2,
+.woocommerce-checkout #order_review_heading {
+	margin-top: 0;
+	font-size: 1.35rem;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout .checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {
+	width: 100%;
+	background: var(--meraki-ink) !important;
+	color: var(--meraki-canvas) !important;
+	border-color: var(--meraki-ink) !important;
+	text-align: center;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout .checkout-button:hover,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward:hover {
+	background: var(--meraki-canvas) !important;
+	color: var(--meraki-ink) !important;
+}
+
+.woocommerce-cart .quantity .qty,
+.woocommerce-checkout input.input-text,
+.woocommerce-checkout textarea,
+.woocommerce-checkout select,
+.woocommerce-checkout .select2-container .select2-selection--single {
+	min-height: 46px;
+	border: 1px solid var(--meraki-border);
+	border-radius: 0;
+	background: var(--meraki-canvas);
+}
+
+.woocommerce-checkout form.checkout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(340px, 0.48fr);
+	gap: 32px;
+	align-items: start;
+}
+
+.woocommerce-checkout #customer_details {
+	grid-column: 1;
+	grid-row: 1 / span 2;
+}
+
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout #order_review {
+	grid-column: 2;
+}
+
+.woocommerce-checkout #order_review {
+	padding: 22px;
+	border: 1px solid var(--meraki-border);
+	background: #fafafa;
+}
+
+.woocommerce-checkout .col2-set .col-1,
+.woocommerce-checkout .col2-set .col-2 {
+	float: none;
+	width: 100%;
+}
+
+.woocommerce-checkout .col2-set {
+	display: grid;
+	gap: 24px;
+	width: 100%;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields,
+.woocommerce-checkout .woocommerce-shipping-fields,
+.woocommerce-checkout .woocommerce-additional-fields {
+	padding: 22px;
+	border: 1px solid var(--meraki-border);
+	background: var(--meraki-canvas);
+}
+
+.woocommerce-checkout .form-row label {
+	font-weight: 700;
+}
+
+.woocommerce-checkout .form-row {
+	margin-bottom: 16px;
+}
+
+.woocommerce-checkout #payment {
+	background: var(--meraki-canvas);
+	border: 1px solid var(--meraki-border);
+	border-radius: 0;
+}
+
+.woocommerce-checkout #payment div.payment_box {
+	background: #f7f7f7;
+}
+
+.woocommerce-checkout #payment div.payment_box::before {
+	border-bottom-color: #f7f7f7;
+}
+
+.woocommerce-checkout #payment .woocommerce-info {
+	margin: 0;
+	border-left-color: var(--meraki-ink);
+	background: var(--meraki-canvas);
+	line-height: 1.5;
+}
+
+.woocommerce-checkout .meraki-payment-pending__button,
+.woocommerce-checkout .meraki-payment-pending__button:disabled {
+	width: 100%;
+	opacity: 1;
+	background: #d8d8d8 !important;
+	color: #555555 !important;
+	border-color: #d8d8d8 !important;
+	cursor: not-allowed;
+}
+
+.meraki-payment-pending__note {
+	margin: 10px 0 0;
+	color: var(--meraki-ash);
+	font-size: 0.88rem;
+	line-height: 1.45;
+}
+
+.woocommerce form .form-row .required {
+	color: #8d1f1f;
+}
+
+.woocommerce a.remove {
+	color: var(--meraki-ink) !important;
+}
+
+.woocommerce a.remove:hover {
+	background: var(--meraki-ink);
+	color: var(--meraki-canvas) !important;
+}
+
+@media (max-width: 782px) {
+	.meraki-mobile-header {
+		grid-template-columns: 52px 1fr auto;
+	}
+
+	.meraki-mobile-actions {
+		grid-column: 3;
+		grid-row: 1;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		justify-self: end;
+	}
+
+	.meraki-mobile-actions .meraki-header-icon {
+		width: 38px;
+		height: 38px;
+	}
+
+	.meraki-mobile-actions .meraki-header-icon svg {
+		width: 25px;
+		height: 25px;
+	}
+
+	.meraki-mobile-nav__panel {
+		position: fixed;
+		top: 112px;
+		right: 16px;
+		left: 16px;
+		z-index: 40;
+		width: auto;
+	}
+
+	body.admin-bar .meraki-mobile-nav__panel {
+		top: 158px;
+	}
+
+	.meraki-mobile-nav__panel a {
+		min-height: 46px;
+	}
+
+	.meraki-age-gate__actions {
+		grid-template-columns: 1fr;
+	}
+
+	.meraki-commerce-assurance,
+	.woocommerce-checkout form.checkout {
+		grid-template-columns: 1fr;
+	}
+
+	.woocommerce-checkout #customer_details,
+	.woocommerce-checkout #order_review_heading,
+	.woocommerce-checkout #order_review {
+		grid-column: 1;
+	}
+
+	.woocommerce-cart table.shop_table_responsive tr,
+	.woocommerce-page table.shop_table_responsive tr {
+		border: 1px solid var(--meraki-border);
+		margin-bottom: 12px;
+		background: var(--meraki-canvas);
+	}
+
+	.woocommerce-cart table.shop_table_responsive tr td,
+	.woocommerce-page table.shop_table_responsive tr td {
+		border: 0;
+	}
+
+	.woocommerce-cart table.cart td.actions .coupon {
+		display: grid;
+		gap: 10px;
+	}
+
+	.woocommerce-cart table.cart td.actions .coupon .input-text,
+	.woocommerce-cart table.cart td.actions .coupon .button,
+	.woocommerce-cart table.cart td.actions > .button {
+		width: 100%;
+	}
+}

@@ -39,6 +39,18 @@ For the 2026-05-09 launch pass, use DDEV as the primary local entrance:
 - WP-CLI verified WordPress `6.9.4`, active theme `meraki-block-theme`, active plugins `meraki-commerce-core` and `woocommerce`, `30` published products, and `30` published COAs.
 - Fresh DDEV setup used `admin` / `admin123` for the local administrator account and disabled WooCommerce coming-soon mode.
 
+### Payment Provider Review Mode
+
+The storefront may be published for merchant-provider review before the live payment gateway is approved. In that state:
+
+- WooCommerce payment gateways can remain disabled.
+- Product browsing, cart, lab results, account links, and checkout layout remain visible.
+- Cart and checkout show an intentional "online checkout is temporarily paused" notice.
+- The checkout place-order button is replaced by a disabled "Payment setup pending" button while no live gateway is available.
+- This mode should automatically disappear once at least one real payment gateway is enabled and available for the cart/customer.
+
+Before opening the store for real customer purchases, configure the approved gateway, place a test order, verify taxes/shipping/payment capture, verify order emails in the production mail path, and re-run the launch audit.
+
 On this Windows workstation, Docker and Node may not be on `PATH`. Prefer DDEV commands first. If Docker Compose is needed for legacy verification and `docker` is not found from PowerShell, use:
 
 ```powershell

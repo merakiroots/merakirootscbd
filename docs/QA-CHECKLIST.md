@@ -9,6 +9,7 @@ These must be green before relaunch:
 - category pages load
 - single-product pages load
 - cart loads
+- checkout shows either a live approved payment gateway or the intentional payment-provider review notice with order submission disabled
 - mobile menu works
 - key navigation links resolve
 - lab-results page loads and shows usable output
@@ -55,5 +56,7 @@ These must be green before relaunch:
 ## Final Decision Rule
 
 If an issue affects trust, purchase flow, or basic rendering, it is a blocker.
+
+For provider-review-only publication, a disabled payment gateway is acceptable only when the payment-provider review notice is visible and order submission is disabled. For a customer launch, the approved payment gateway must be enabled and tested.
 
 If an issue is cosmetic and does not degrade trust or navigation, log it and move on if time is tight.

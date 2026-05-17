@@ -8,6 +8,7 @@
 - Local PHP CLI is available as `D:\php.exe` (PHP 8.3.31), so static PHP linting is available outside Docker.
 - Node is available as `C:\Program Files\nodejs\node.exe`; the root `npm` scripts still describe a generic `wp-env` setup and are not the launch verification path.
 - Product image imports in DDEV may print nonfatal `chmod(): Operation not permitted` warnings from WordPress image generation on the Windows bind mount. Re-run the launch audit instead of treating those warnings as an import failure.
+- Live payment processing is not configured yet. Until the approved provider gateway is enabled, the storefront uses an intentional payment-provider review mode: browsing/cart/checkout layout remain visible, but order submission is disabled.
 
 ### Legacy theme/plugin dependencies still present
 

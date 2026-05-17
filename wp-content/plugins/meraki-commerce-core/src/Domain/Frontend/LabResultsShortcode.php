@@ -62,8 +62,9 @@ class LabResultsShortcode {
 			<?php if ( empty( $results ) ) : ?>
 				<p><?php esc_html_e( 'No lab results are available yet.', 'meraki-commerce-core' ); ?></p>
 			<?php else : ?>
+				<?php $group_index = 0; ?>
 				<?php foreach ( $results as $group_label => $items ) : ?>
-					<details class="meraki-lab-results__group">
+					<details class="meraki-lab-results__group" <?php echo 0 === $group_index ? 'open' : ''; ?>>
 						<summary class="meraki-lab-results__summary"><?php echo esc_html( $group_label ); ?></summary>
 						<ul class="meraki-lab-results__list">
 							<?php foreach ( $items as $item ) : ?>
@@ -81,6 +82,7 @@ class LabResultsShortcode {
 							<?php endforeach; ?>
 						</ul>
 					</details>
+					<?php $group_index++; ?>
 				<?php endforeach; ?>
 			<?php endif; ?>
 			<p class="meraki-lab-results__disclaimer"><?php echo esc_html( $this->compliance_text->get_fda_disclaimer() ); ?></p>

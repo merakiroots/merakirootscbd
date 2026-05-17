@@ -3,11 +3,24 @@
     "version": "1.0.0",
     "description": "WordPress development environment setup",
     "main": "index.js",
+    "engines": {
+        "node": ">=24",
+        "npm": ">=10"
+    },
     "scripts": {
-        "start": "wp-env start",
-        "stop": "wp-env stop",
-        "destroy": "wp-env destroy",
-        "install": "wp-env run cli wp core install --url=http://localhost:8888 --title=\"Meraki Roots CBD\" --admin_user=admin --admin_password=password --admin_email=info@merakirootscbd.com"
+        "build": "wp-scripts build",
+        "check-engines": "wp-scripts check-engines",
+        "check-licenses": "wp-scripts check-licenses",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
+        "lint:md:docs": "wp-scripts lint-md-docs",
+        "lint:pkg-json": "wp-scripts lint-pkg-json",
+        "packages-update": "wp-scripts packages-update",
+        "plugin-zip": "wp-scripts plugin-zip",
+        "start": "wp-scripts start",
+        "test:e2e": "wp-scripts test-e2e",
+        "test:unit": "wp-scripts test-unit-js"
     },
     "wpPlugin": {
         "scriptGlobal": "my-plugin"
@@ -15,8 +28,9 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "composer": "^4.1.0",
-        "@wordpress/scripts": "^32.1.0",
-        "node": "^26.1.0"
+        "composer": "^4.1.0"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^32.2.0"
     }
 }

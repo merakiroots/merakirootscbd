@@ -131,7 +131,7 @@ class ProductCoaPresenter {
 									<?php echo esc_html( trim( implode( ' | ', array_filter( array( $data['lab_name'], $data['test_date'], $data['batch_id'] ) ) ) ) ); ?>
 								</p>
 							<?php endif; ?>
-							<p><a href="<?php echo esc_url( $data['attachment_url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Open Certificate of Analysis', 'meraki-commerce-core' ); ?></a></p>
+							<p><a class="mcc-coa-link" href="<?php echo esc_url( $data['attachment_url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'View third-party lab results', 'meraki-commerce-core' ); ?></a></p>
 						</div>
 					</details>
 				<?php endif; ?>

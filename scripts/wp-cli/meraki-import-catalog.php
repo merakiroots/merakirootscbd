@@ -168,6 +168,38 @@ function mr_import_find_attachment_by_relative_path( string $relative_path ): in
 }
 
 /**
+ * Refresh image metadata when a source upload is replaced in place.
+ *
+ * @param int                 $attachment_id Attachment ID.
+ * @param string              $absolute_path Absolute file path.
+ * @param array<string,mixed> $filetype File type data from wp_check_filetype().
+ * @return void
+ */
+function mr_import_refresh_image_metadata_if_changed( int $attachment_id, string $absolute_path, array $filetype ): void {
+	if ( ! $attachment_id || 0 !== strpos( (string) ( $filetype['type'] ?? '' ), 'image/' ) ) {
+		return;
+	}
+
+	$source_hash = hash_file( 'sha256', $absolute_path );
+	if ( ! is_string( $source_hash ) || '' === $source_hash ) {
+		return;
+	}
+
+	$stored_hash = (string) get_post_meta( $attachment_id, '_mr_import_source_sha256', true );
+	if ( '' !== $stored_hash && hash_equals( $stored_hash, $source_hash ) ) {
+		return;
+	}
+
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+
+	$metadata = wp_generate_attachment_metadata( $attachment_id, $absolute_path );
+	if ( is_array( $metadata ) ) {
+		wp_update_attachment_metadata( $attachment_id, $metadata );
+		update_post_meta( $attachment_id, '_mr_import_source_sha256', $source_hash );
+	}
+}
+
+/**
  * Register a file already located inside wp-content/uploads as an attachment.
  *
  * @param string $absolute_path Absolute file path.
@@ -185,15 +217,16 @@ function mr_import_attachment_from_upload_file( string $absolute_path, string $a
 
 	$relative_path = ltrim( substr( $absolute_path, strlen( $upload_base ) ), '/' );
 	$attachment_id = mr_import_find_attachment_by_relative_path( $relative_path );
+	$filetype      = wp_check_filetype( $absolute_path );
 
 	if ( $attachment_id ) {
 		if ( '' !== $alt_text ) {
 			update_post_meta( $attachment_id, '_wp_attachment_image_alt', sanitize_text_field( $alt_text ) );
 		}
+		mr_import_refresh_image_metadata_if_changed( $attachment_id, $absolute_path, $filetype );
 		return $attachment_id;
 	}
 
-	$filetype = wp_check_filetype( $absolute_path );
 	$title    = sanitize_text_field( pathinfo( $absolute_path, PATHINFO_FILENAME ) );
 	$url_path = str_replace( '%2F', '/', rawurlencode( $relative_path ) );
 
@@ -219,13 +252,7 @@ function mr_import_attachment_from_upload_file( string $absolute_path, string $a
 		update_post_meta( $attachment_id, '_wp_attachment_image_alt', sanitize_text_field( $alt_text ) );
 	}
 
-	if ( 0 === strpos( (string) $filetype['type'], 'image/' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/image.php';
-		$metadata = wp_generate_attachment_metadata( $attachment_id, $absolute_path );
-		if ( is_array( $metadata ) ) {
-			wp_update_attachment_metadata( $attachment_id, $metadata );
-		}
-	}
+	mr_import_refresh_image_metadata_if_changed( $attachment_id, $absolute_path, $filetype );
 
 	return absint( $attachment_id );
 }
