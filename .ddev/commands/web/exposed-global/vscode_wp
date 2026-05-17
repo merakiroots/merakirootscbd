@@ -1,8 +1,0 @@
-#!/bin/bash
-## Usage: vscode_wp [flags] [args]
-## Description: Run wp in a VS Code environment
-## Example: "ddev vscode_wp <command>"
-## ExecRaw: true
-## HostWorkingDir: true
-
-wp "$@"

@@ -25,4 +25,7 @@ logs/
 *.env.local
 .env
 ./.env/
-
+.kilo
+.kilo/
+./.kilo/
+./.codex/
