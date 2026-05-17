@@ -1,6 +1,18 @@
-#ddev-generated: Automatically generated ddev .gitignore.
 # You can remove the above line if you want to edit and maintain this file yourself.
 /.gitignore
-
+/artifacts/
+/build/
+artifacts/
+./artifacts/
 /wp-config-ddev.php
 /drushrc.php
+/.ddev/
+/.ddev/.gitignore
+/ddev/.ddevconfig.yaml
+/ddev/.ddev/docker-compose.yaml
+node_modules/
+vendor/
+/node_modules/
+./node_modules/
+/vendor/
+
